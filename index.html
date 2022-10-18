@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- Head -->
+    <head>
+        <meta charset lang="en">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="./portfolio.css">
+        <title>Wayne Hsu</title>
+    </head>
+
+    <!-- Body -->
+    <body class="background">
+
+        <!-- NAV BAR-->
+        <div class="Navbar">
+            <a class="active" href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#github">Github</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <!-- Breaks to create space between the Navbar and first heading -->
+        <br>
+        <br>
+
+        <!-- Background Video -->
+        <div id="home">
+            <video autoplay muted loop id="Video">
+                <source src="./video.mp4" type="video/mp4">
+                <!-- Message displayed if video fails to run -->
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+
+        <!-- Video text -->
+        <div class="Video_text">
+            <h1 class="title">Wayne's Portfolio</h1>
+            <strong>
+                <p class="center">
+                    <q>The computer programmer is a creator of universes for which he alone is the lawgiver.
+                        <br>No playwright, no stage director, no emperor, however powerful, has ever exercised such absolute authority to arrange a stage or
+                        <br>field of battle and to command such unswervingly dutiful actors or troops.
+                    </q>
+                    <br> -Joseph Weizenbaum
+                    <br>
+                    <br> My name is Wayne. Welcome to my portfolio website. On it, I will tell you about my background and experience.
+                    <br>
+                    <br> Thank you for stopping by and enjoy!
+                </p>
+            </strong>
+        </div>
+
+        <!-- About -->
+        <div id="about" class="row">
+            <!-- Left column -->
+            <div class="Column_2">
+                <img src="tech.jpg" alt="Technology Picture">
+            </div>
+            <!-- Right column -->
+            <div class="Column_1">
+                <h1>About</h1>
+                <p>
+                    I am a software development student currently learning about HTML and CSS.
+                    <br>
+                    <br>I am aiming to become a full-stack developer! If you would like to connect with me please <a href="#Contact">Contact</a> me below!
+                </p>
+            </div>
+        </div>
+
+        <!-- Github section -->
+        <div id="github" class="row">
+            <!-- Left column -->
+            <div class="Column_1">
+                <h1>Github</h1>
+                <p>
+                    You can view my coding projects on my GitHub profile here:
+                    <br>
+                    <p class="center"><a href="https://github.com/waynehsu770" target="_blank">Wayne's Github</a></p>
+                </p>
+            </div>
+            <!-- Right column -->
+            <div class="Column_2">
+                <a href="https://github.com/waynehsu770" target="_blank"><img src="github.png" alt="GitHub Logo"></a>
+            </div>
+        </div>
+
+        <!-- Contact section -->
+        <div id="contact" class="row">
+            <!-- Left column -->
+            <div class="Column_2 Column_tall">
+                <img src="mail.jpg" alt="Contact_Image">
+            </div>
+            <!-- Right column -->
+            <div class="Column_1 Column_tall">
+                <h1>Contact</h1>
+                 <!--This specifies where and how to send the form data; we are leaving it blank-->
+                 <form action="https://formspree.io/f/xwkzqdkz" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
+                    <label>Name:</label>
+                        <input type="text" placeholder="Please enter your name here">
+                    <label>Email:</label>
+                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
+                    <label>Message:</label>
+                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
+                        <input type="submit" value="SUBMIT">
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer section -->
+        <footer>
+            <p>
+                <p class="center">Wayne Hsu | 2022</p>
+                <br>
+            </p>
+        </footer>
+    </body>
+
+</html>
