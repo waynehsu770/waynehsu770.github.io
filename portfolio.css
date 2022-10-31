@@ -1,5 +1,9 @@
 /* General Styling */
-/* Body */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0%;
 }
@@ -162,7 +166,7 @@ footer {
 #Video {
     position: fixed;
     right: 0;
-    left: 0;
+    bottom: 0;
     min-width: 100%;
     z-index: -1;
 }
@@ -179,7 +183,8 @@ footer {
     background: rgba(0, 0, 0, 0.5);
     color: dodgerblue;
     width: 100%;
-    padding: 20px;
+    height: 100vh;
+    padding: 2vh;
     position: relative;
     -webkit-animation: moveVideoText 5.75s;
     animation: moveVideoText 5.75s;
@@ -193,6 +198,119 @@ footer {
 
 /* END OF VIDEO STYLING */
 
+/* Slideshow Styling */
+
+#slideshow_background {
+    /* Slightly transparent white background thats placed over the video in the background */
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.mySlides {
+    /* Prevents image from being displayed, JS will be utilized instead to display it */
+    display: none;
+}
+
+#slideshow_container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+#slideshow_container a {
+    /* Removes underline from prev and next buttons */
+    text-decoration: none;
+}
+
+.slideshow_images {
+    /* Centers the image vertically within the slideshow container */
+    vertical-align: middle;
+    height: auto;
+    /* Adds shadow around the slideshow iamges */
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    width: 100%;
+}
+
+.Previous, .Next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5vw;
+    /* Adds slightly rounded border on top and bottom right corners */
+    border-radius: 0 3px 3px 0;
+    /* Makes it so that the user cannot highlight the text */
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.Next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.Previous:hover, .Next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 0 0 7px 7px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    /* Allows the dots to sit next to each other rather than on a new line */
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+.active, .dot:hover {
+    background-color: black;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+.contact {
+    cursor: pointer;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;} /* Starts from transparent */
+    to {opacity: 1;} /* Then ends with opaque */
+}
+
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
 /* TABLE STYLING */
 
 * { /* The asterisk is a universal selector that applies this effect to all elements on the page */
@@ -202,9 +320,8 @@ footer {
 .Column_1 {
     float: left;
     width: 50%; 
-    padding: 10px;
-    padding-top: 3%;
-    height: 400px; 
+    padding: 1.6%;
+    height: 450px; 
     background-color: #f2f2f2;
 }
 
@@ -218,9 +335,8 @@ footer {
 .Column_2 {
     float: left;
     width: 50%;
-    padding: 10px;
-    padding-top: 1.9%;
-    height: 400px;
+    padding: 1.6%;
+    height: 450px;
     background-color: #4d4d4d;
 }
 
@@ -239,54 +355,194 @@ footer {
 
 /* END OF TABLE STYLING */
 
-/* CONTACT FORM STYLING */
-
-input[type=text] {
-    width: 100%; 
-    padding: 12px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    box-sizing: border-box; 
-    margin-top: 6px; 
-    margin-bottom: 16px; 
-    resize: vertical; 
-    font-family: Monaco, Arial, Serif;
+/* Contact Form Styling */
+/* Button used to open the contact form - fixed at the bottom of the page */
+.Pop_Up_Button {
+    position: fixed; /* The element is positioned relative to the viewport and stays in the same location no matter what */
+    bottom: 1.75vw; /* Positions the button slightly up from the bottom of the viewport */
+    right: 1.75vw; /* Positions the viewport slightly right from the side of the viewport */
+    width: 25vw; /* Sets the width relative to the viewport width */
+    background-color: white; /* Sets the background color of the button to white */
+    color: black; /* Sets the color of the button text to black */
+    border: solid black; /* This makes a solid black border around the button */
+    cursor: pointer; /* This changes the cursor when hovered over the button to a pointer */
+    -webkit-animation: movePopup 5s; /* Animation for 5 seconds for Safari 4.0-8.0 */
+    animation: movePopup 5s; /* Animation set for 5 seconds */
 }
 
-/* Input Boxes Hover Effefct */
-input[type=text]:hover {
-    box-shadow: 0 0 5px #00004d inset; 
+/* movePopup animation moves the button from off the right side of the screen to its fixed location on the viewport */
+@keyframes movePopup {
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
 }
 
-/* Submit Button */
-input[type=submit] {
-    background-color: black; 
-    color: white; 
-    font-weight: bold; 
-    padding: 12px 20px;
-    border: none; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: Monaco, Arial, Serif;
+@-webkit-keyframes movePopup {
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
 }
 
-/* Submit Button Hover Effect  */
-input[type=submit]:hover {
+/* Styling for the contact form */
+.form-popup {
+    z-index: 8; /* This z-index ensures the contact form shows above all other elements on the page */
+    display: none; /* Set the display to none, we will use JavaScript to show the contact form */
+    position: fixed; /* The form stays in the same location no matter what */
+    bottom: .5vw; /* Slightly up from the bottom of the viewport */
+    right: .5vw; /* Slightly in from the right side of the viewport */
+}
+
+/* Form styling */
+.form-container {
+    max-width: 49vw; /* Relative sizing of the form container - 49% of the viewport width */
+    padding: 1vw; /* Adds padding between the form-popup and the form-container */
     background-color: white; 
-    color: black; 
-    transform: scale(1.5); 
-    transition: transform 1.5s; 
 }
 
-/* Form Element */
-form {
-    border-radius: 5px; 
-    background-color: #f2f2f2; 
-    padding: 10px;
-    font-family: Monaco, Arial, Serif;
+/* Input fields */
+.form-container input[type=text] {
+    width: 100%; /* The input boxes completely fill the width of the form-container */
+    padding: .93vw; /* Adds padding to the input boxes */
+    margin: .6vw 0 .6vw 0; /* Adds space between the input boxes and the labels */
+    border: none; /* Removes the border from the input boxes */
+    background: Gainsboro; /* Sets the background color of the input boxes */
+    font-size: 1vw; /* Relative font sizing based on the width of the viewport */
 }
 
-/* END OF CONTACT FORM STYLING */
+/* General styling for all buttons */
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw; /* Adds slight spacing between the letters */
+    font-size: 1.5vw; /* Relative sizing of text */
+    font-weight: bold; 
+    padding: 1.5vw; /* Adds padding to the text in the button */
+    cursor: pointer; /* Changes the cursor to pointer over button elements */
+    width: 100%; /* Sets the width of the buttons to 100% of their containers */
+    height: auto; /* Allows the height to be resized depending on the content showing */
+}
+
+/* Hover effect for contact and submit buttons */
+button:hover, .form-container .btn:hover {
+    color: white; /* This makes the text in the buttons white when hovered over */
+    background-color: darkcyan; /* The background of the button changes to black when hovered over */
+    transition-duration: 1s; /* This makes the transition last 1 second */
+    -webkit-transition-duration: 1s; /* For Safari 4.0-8.0 */
+    border-color: silver; /* The border turns silver when the button is hovered over */
+}
+
+/* Submit button */
+.form-container .btn {
+    background-color: white; 
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh; /* Adds space between the submit button and the close button */
+}
+
+/* Close button */
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: gray;
+}
+
+/* Styling for close button on hover */
+.form-container .cancel:hover {
+    color: white;
+    background-color: darkred;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: black;
+}
+/* END of Contact Form Styling */
+
+/* Media Query Section */
+/* Media rules for paragraph font size for different screen sizes */
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.75vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.75vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.25vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 2vw;
+    } 
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.75vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.35vw;
+    }
+}
+
+/* Media rule for navbar links for different screen sizes */
+/* Screens 1080px and smaller will display navbar links equally distributed */
+@media screen and (max-width: 1080px) {
+    .Navbar a{
+        width: 20%; /* This sets each navbar link to 1/5 of the navbar */
+        font-size: 2.5vw;
+    }
+}
+
+/* Media rules to enlarge the font of the white text for smaller screens */
+@media screen and (max-width: 1080px) {
+    .quote{
+        font-size: 3.5vw;
+    }
+
+    .white-text {
+        font-size: 4.5vw;
+    }
+}
+
+/* Media rules to increase the size of the columns for larger screens */
+@media screen and (min-width: 1725px) {
+    .Column_1 {
+        height: 550px;
+    }
+    .Column_2 {
+        height: 550px;
+    }
+}
+
+/*Media rule to remove margin-top from h1 elements for extra large screens (so that the paragraph text fits in the column*/
+@media screen and (min-width: 2000px) {
+    h1{
+        margin-top: 0;
+    }
+}
+/* END of Media Query Section s*/

@@ -17,7 +17,7 @@
             <a class="active" href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#github">Github</a>
-            <a href="#contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
 
         <!-- Breaks to create space between the Navbar and first heading -->
@@ -27,7 +27,7 @@
         <!-- Background Video -->
         <div id="home">
             <video autoplay muted loop id="Video">
-                <source src="./video.mp4" type="video/mp4">
+                <source src="video.mp4" type="video/mp4">
                 <!-- Message displayed if video fails to run -->
                 Your browser does not support HTML5 video.
             </video>
@@ -51,6 +51,65 @@
             </strong>
         </div>
 
+        <!-- Slideshow Section -->
+        <div id="slideshow">
+            <div id="slideshow_background">
+                <div id="slideshow_container">
+                    <!-- Slide 1/6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="hello.jpeg" alt="Welcome">
+                        <div class="text">Hello!</div>
+                    </div>
+
+                    <!-- Slide 2/6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS and JS logos">
+                        <div class="text">I am a full-stack software developer,<br> trained in:<br>
+                        HTML, CSS and Javascript.</div>
+                    </div>
+
+                    <!-- Slide 3/6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="Python.png" alt="Python Logo">
+                        <div class="text">I will also be learning Python,</div>
+                    </div>
+
+                    <!-- Slide 4/6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="C_Sharp_and_Dot_NET.png" alt="C# Logo">
+                        <div class="text">C#, .NET Framework, ASP .NET</div>
+                    </div>
+
+                    <!-- Slide 5/6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="SQL_and_Database.jpg" alt="SQL Logo">
+                        <div class="text">back end development, databases and SQL.</div>
+                    </div>
+
+                    <!-- Slide 6/6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="contact.jpeg" alt="Contact">
+                        <div class="text"><a class="contact" onclick="openForm()">Contact me now!</a></div>
+                    </div>
+
+                    <!-- Prev and Next buttons -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+
+                <!-- Slideshow Dots -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+
         <!-- About -->
         <div id="about" class="row">
             <!-- Left column -->
@@ -63,7 +122,7 @@
                 <p>
                     I am a software development student currently learning about HTML and CSS.
                     <br>
-                    <br>I am aiming to become a full-stack developer! If you would like to connect with me please <a href="#Contact">Contact</a> me below!
+                    <br>I am aiming to become a full-stack developer! If you would like to connect with me please <a onclick="openForm()" class="contact">Contact</a> me below!
                 </p>
             </div>
         </div>
@@ -84,28 +143,27 @@
                 <a href="https://github.com/waynehsu770" target="_blank"><img src="github.png" alt="GitHub Logo"></a>
             </div>
         </div>
+        <!-- End Github Section -->
 
-        <!-- Contact section -->
-        <div id="contact" class="row">
-            <!-- Left column -->
-            <div class="Column_2 Column_tall">
-                <img src="mail.jpg" alt="Contact_Image">
-            </div>
-            <!-- Right column -->
-            <div class="Column_1 Column_tall">
-                <h1>Contact</h1>
-                 <!--This specifies where and how to send the form data; we are leaving it blank-->
-                 <form action="https://formspree.io/f/xwkzqdkz" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
-                    <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                        <input type="submit" value="SUBMIT">
+        <!-- Contact Pop-Up Form -->
+        <div id="contact">
+            <button onclick="openForm()" class="Pop_Up_Button" >Contact me!</button>
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/f/xwkzqdkz" method="POST" class="form-container">
+                    <h1>Contact Me!</h1>
+                    <label for="name"><strong>Name:</strong></label>
+                        <input type="text" name="name" placeholder="Please enter your name">
+                    <label for="email"><strong>Email:</strong></label>
+                        <input type="text" name="email" placeholder="Please enter your email">
+                    <label for="message"><strong>Message:</strong></label>
+                        <input type="text" name="message" placeholder="Please write your message">
+
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
+        <!-- End Contact Form -->
 
         <!-- Footer section -->
         <footer>
@@ -114,6 +172,7 @@
                 <br>
             </p>
         </footer>
+        <script src="portfolio.js"></script>
     </body>
 
 </html>
