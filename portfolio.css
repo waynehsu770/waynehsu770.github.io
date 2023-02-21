@@ -33,7 +33,7 @@ h1:hover {
 p {
     font-family: Monaco, Arial, Serif;
     text-align: justify;
-    letter-spacing: 1px;
+    letter-spacing: .5px;
     font-size: 20px;
     padding-left: 20px;
     padding-right: 20px;
